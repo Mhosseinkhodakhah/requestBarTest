@@ -26,10 +26,10 @@ def print_name(id):
     users.append(id)
     try:
         print(f'test request start successfully for user/{id}')
-        response = requests.get('https://ocean.spider-cryptobot.site/test')
+        response = requests.get('url')
         a.append(f'user/{id} , {response} in time {response.elapsed.total_seconds()}')
         counter.append(response.status_code)
-        response2 = requests.get('https://ocean.spider-cryptobot.site/api/v1/set-user/app/test')
+        response2 = requests.get('url')
         a.append(f'user/{id} => second request ,{response2} in time = > {response2.elapsed.total_seconds()}')
         counter.append(response2.status_code)
         print(f'test request done successfully for user/{id}')
@@ -53,7 +53,7 @@ def print_name(id):
 }   
     try:
         print(f'register request start for user/{id}')
-        register = requests.post('https://ocean.spider-cryptobot.site/api/v1/set-user/app/register' , json=registerBody)
+        register = requests.post('url' , json=registerBody)
         a.append(f'user/{id} => register request ,{register} in time = > {register.elapsed.total_seconds()}')
         counter.append(register.status_code)
         token = register.json()['data']['user']['token']
@@ -68,7 +68,7 @@ def print_name(id):
     
     try:
         print(f'checkToken test start for user/{id}')
-        checkToken = requests.get('https://ocean.spider-cryptobot.site/api/v1/get-user/app/check-token' , headers={'Authorization': f'Bearer {token}'})
+        checkToken = requests.get('url' , headers={'Authorization': f'Bearer {token}'})
         a.append(f'user/{id} => checkToken request ,{checkToken} in time = > {checkToken.elapsed.total_seconds()}')
         counter.append(checkToken.status_code)
         print(f'check token test passed for user/{id}')
@@ -83,7 +83,7 @@ def print_name(id):
          
     try:
         print(f'getUser request start for user/{id}')
-        getUser = requests.get('https://ocean.spider-cryptobot.site/api/v1/get-user/app/get-user' , headers={'Authorization': f'Bearer {token}'})
+        getUser = requests.get('url' , headers={'Authorization': f'Bearer {token}'})
         a.append(f'user/{id} => getUser request ,{getUser} in time = > {getUser.elapsed.total_seconds()}')
         counter.append(getUser.status_code)
         print(f'getUser request done for user/{id}')
@@ -96,7 +96,7 @@ def print_name(id):
         
     try:    
         print(f'getUserPoint request start for user/{id}')
-        getUserPoints = requests.get('https://ocean.spider-cryptobot.site/api/v1/get-user/app/get-points-rank' , headers={'Authorization': f'Bearer {token}'})
+        getUserPoints = requests.get('url' , headers={'Authorization': f'Bearer {token}'})
         a.append(f'user/{id} => getUserPoints request ,{getUserPoints} in time = > {getUserPoints.elapsed.total_seconds()}')
         counter.append(getUserPoints.status_code)
         print(f'getUserPoint request done for user/{id}')
@@ -111,7 +111,7 @@ def print_name(id):
         
     try:
         print(f'getPersianLessons reqeust start user/{id}')
-        getpersianlessons = requests.get('https://ocean.spider-cryptobot.site/api/v1/get-content/app/get-lessons/persian' , headers={'Authorization': f'Bearer {token}'})
+        getpersianlessons = requests.get('url' , headers={'Authorization': f'Bearer {token}'})
         a.append(f'user/{id} => getpersianlessons request ,{getpersianlessons} in time = > {getpersianlessons.elapsed.total_seconds()}')
         counter.append(getpersianlessons.status_code)
         print(f'getPersianLessons reqeust done user/{id}')
@@ -125,7 +125,7 @@ def print_name(id):
     
     try:  
         print(f'getEnglishLessons reqeust start user/{id}')
-        getEnglishLesson = requests.get('https://ocean.spider-cryptobot.site/api/v1/get-content/app/get-lessons/english' , headers={'Authorization': f'Bearer {token}'})
+        getEnglishLesson = requests.get('url' , headers={'Authorization': f'Bearer {token}'})
         a.append(f'user/{id} => getEnglishLesson request ,{getEnglishLesson} in time = > {getEnglishLesson.elapsed.total_seconds()}')
         counter.append(getEnglishLesson.status_code)
         print(f'getEnglishLessons reqeust done user/{id}')
@@ -139,7 +139,7 @@ def print_name(id):
     
     try:
         print(f'getarabicLessons reqeust start user/{id}')
-        getArabicLessons = requests.get('https://ocean.spider-cryptobot.site/api/v1/get-content/app/get-lessons/arabic' , headers={'Authorization': f'Bearer {token}'})
+        getArabicLessons = requests.get('url' , headers={'Authorization': f'Bearer {token}'})
         a.append(f'user/{id} => getArabicLessons request ,{getArabicLessons} in time = > {getArabicLessons.elapsed.total_seconds()}')
         counter.append(getArabicLessons.status_code)
         print(f'getarabicLessons reqeust done user/{id}')
@@ -159,21 +159,21 @@ def print_name(id):
                 subid = j['_id']
                 
                 print(f'get persiansublesson with id{subid} for user/{id}')
-                getPersianSubLesson = requests.get(f'https://ocean.spider-cryptobot.site/api/v1/get-content/app/get-sublesson/{subid}/persian' , headers={'Authorization': f'Bearer {token}'})
+                getPersianSubLesson = requests.get(f'url' , headers={'Authorization': f'Bearer {token}'})
                 a.append(f'user/{id} => getPersianSubLesson request ,{getPersianSubLesson} in time = > {getPersianSubLesson.elapsed.total_seconds()}')
                 counter.append(getPersianSubLesson.status_code)
                 resaults[f'user/{id}-getPersianSubLesson'] =json.loads(getPersianSubLesson.text)
                 time.sleep(0.5)
                 
                 print(f'get englishsublesson with id{subid} for user/{id}')
-                getEnglishSubLesson = requests.get(f'https://ocean.spider-cryptobot.site/api/v1/get-content/app/get-sublesson/{subid}/english' , headers={'Authorization': f'Bearer {token}'})
+                getEnglishSubLesson = requests.get(f'url' , headers={'Authorization': f'Bearer {token}'})
                 a.append(f'user/{id} => getEnglishSubLesson request ,{getEnglishSubLesson} in time = > {getEnglishSubLesson.elapsed.total_seconds()}')
                 counter.append(getEnglishSubLesson.status_code)
                 resaults[f'user/{id}-getEnglishSubLesson'] = json.loads(getEnglishSubLesson.text)
                 time.sleep(0.5)
                 
                 print(f'get arabicsublesson with id{subid} for user/{id}')
-                getarabicSubLesson = requests.get(f'https://ocean.spider-cryptobot.site/api/v1/get-content/app/get-sublesson/{subid}/arabic' , headers={'Authorization': f'Bearer {token}'})
+                getarabicSubLesson = requests.get(f'url' , headers={'Authorization': f'Bearer {token}'})
                 a.append(f'user/{id} => getarabicSubLesson request ,{getarabicSubLesson} in time = > {getarabicSubLesson.elapsed.total_seconds()}')
                 counter.append(getarabicSubLesson.status_code)
                 resaults[f'user/{id}-getarabicSubLesson'] = json.loads(getarabicSubLesson.text)
@@ -187,7 +187,7 @@ def print_name(id):
     
     try:
         print(f'getLevels start for user/{id}')
-        getLevels = requests.get('https://ocean.spider-cryptobot.site/api/v1/get-content/app/get-levels' , headers={'Authorization': f'Bearer {token}'})
+        getLevels = requests.get('url' , headers={'Authorization': f'Bearer {token}'})
         a.append(f'user/{id} => getLevels request ,{getLevels} in time = > {getLevels.elapsed.total_seconds()}')
         counter.append(getLevels.status_code)
         print(f'getLevels done for user/{id}')
@@ -201,7 +201,7 @@ def print_name(id):
     
     try:
         print(f'getContents start for user/{id}')
-        getContents = requests.get('https://ocean.spider-cryptobot.site/api/v1/get-content/app/get-contents' , headers={'Authorization': f'Bearer {token}'})
+        getContents = requests.get('url' , headers={'Authorization': f'Bearer {token}'})
         a.append(f'user/{id} => getContents request ,{getContents} in time = > {getContents.elapsed.total_seconds()}')
         counter.append(getContents.status_code)
         print(f'getContents done for user/{id}')
@@ -218,7 +218,7 @@ def print_name(id):
         time.sleep(1)
         try:
             print(f'seenContent start for user/{id}')
-            seenContents = requests.put(f'https://ocean.spider-cryptobot.site/api/v1/set-content/app/seen-content/{contentId}' , headers={'Authorization': f'Bearer {token}'})
+            seenContents = requests.put(f'url' , headers={'Authorization': f'Bearer {token}'})
             a.append(f'user/{id} => seenContents request ,{seenContents} in time = > {seenContents.elapsed.total_seconds()}')
             counter.append(seenContents.status_code)
             print(f'seenContent done for user/{id} and content/{contentId}')
