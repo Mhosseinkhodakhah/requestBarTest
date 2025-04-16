@@ -139,15 +139,15 @@ class virtualTest :
                         self._getWallet(token , user)            
 
                         # print(f'start the sell for user {user}')
-                        completSell = self.scenarios.completeSellTransaction(token , user , sellGold['data']['transactionId'])
-                        if (completSell['status'] == 200  or completSell['status'] == 201):
-                            self.__geProfile(token , user)
-                            self._getWallet(token , user)            
+                        # completSell = self.scenarios.completeSellTransaction(token , user , sellGold['data']['transactionId'])
+                        # if (completSell['status'] == 200  or completSell['status'] == 201):
+                        #     self.__geProfile(token , user)
+                        #     self._getWallet(token , user)            
 
-                            # print(f'completing sell for user {user} done!')
-                        else : 
-                            self.__geProfile(token , user)
-                            self._getWallet(token , user)            
+                        #     # print(f'completing sell for user {user} done!')
+                        # else : 
+                        #     self.__geProfile(token , user)
+                        #     self._getWallet(token , user)            
 
                             # print(f'completing sell failed for user {user}')
                     else : 
